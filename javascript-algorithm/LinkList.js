@@ -68,4 +68,16 @@ linkList.append(2);
 linkList.append(3);
 linkList.append(4);
 
-linkList.print2();
+// linkList.print2();
+
+
+// LRU 缓存 测试demo
+const cache = new Map();
+cache.set('a',1);
+cache.set('b',2);
+cache.set('c',3);
+cache.set('d',4);
+
+console.log(cache.keys().next(),"feat-logistic_receipt_log")
+
+
