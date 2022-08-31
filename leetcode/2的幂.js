@@ -11,7 +11,7 @@ const isPoerOfTwo = (n) => {
         }
        n = Math.floor(n / 2);
     }
-    return true;
+    return n > 0;
 }
 
 
@@ -28,4 +28,4 @@ const isPoerOfTwo2 = (n) => {
 
 
 
-console.log(isPoerOfTwo(128),"isPoerOfTwo(128)")
+console.log(isPoerOfTwo(1),"isPoerOfTwo(128)")
