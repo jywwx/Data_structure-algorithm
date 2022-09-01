@@ -53,13 +53,14 @@ const iteratorForTree = (root) => {
     while (stack.length) {
        const cur = stack.pop();
        result.push(cur.val)
-       if (cur.left) {
-        stack.push(cur.left) 
-       }
-
        if (cur.right) {
         stack.push(cur.right)
        }
+
+       if (cur.left) { 
+        stack.push(cur.left) 
+       }
+
     }
     console.log(result,"result")
 }
