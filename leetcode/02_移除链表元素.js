@@ -49,7 +49,7 @@ const removerElement2 = (head,val) => {
      if (p.val === val) {
        p.next = p.next.next;
      } else {
-        p = p.next;
+       p = p.next;
      }
    }
    return head;
