@@ -25,16 +25,13 @@ const linkList = {
 }
 
 
-
+// 函数的调用栈 尾调用优化; 先执行递归 后按照嵌套一次返回;
 const removeElement = (head,val) => {
-   console.log(head,"start")
    if (head === null) {
       return head;
    }
    head.next = removeElement(head.next, val);
-   const ret = head.val === val ? head.next : head;
-   console.log(ret,"end")
-   return ret;
+   return head.val === val ? head.next : head;
 }
 
 /**

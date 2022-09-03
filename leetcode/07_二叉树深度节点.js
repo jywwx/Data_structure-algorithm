@@ -1,5 +1,5 @@
 // 题目要求 找出 树结构最深的节点层数
-
+// 时间复杂度为O(n)
 // 构造二叉树 数据
 function TreeNode (val,left,right) {
     this.val = val ? val : 0;

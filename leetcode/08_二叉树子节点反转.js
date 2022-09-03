@@ -65,8 +65,7 @@ const iteratorForTree = (root) => {
     console.log(result,"result")
 }
 
-
-
+// 时间复杂度为O(n)
 // invertTree2(root);
 console.log(iteratorForTree(root));
 // console.log(root)

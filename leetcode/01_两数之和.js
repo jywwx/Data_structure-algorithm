@@ -8,6 +8,7 @@ const nums = [2,7,11,15];
  * @param {*} target 
  * @returns Array<number>
  */
+// 时间复杂度为O(n^2)
 const twoSum = (nums,target) => {
     for (let i =0; i< nums.length; i++) {
       for (let j=0;j< nums.length; j++) {
@@ -24,19 +25,20 @@ const twoSum = (nums,target) => {
  * @param {*} target 
  * @returns 
  */
+// 时间复杂度为O(n)
+// forEach 不可中断返回 
+// 题目要求 算法时间复杂度为o(n) 找出数组当中的两个数的和为target 目标值
 const twoSum2 = (nums,target) => {
-    const hashTab = {};
-    for (let i =0; i< nums.length; i++) {
-       const num = nums[i];
-       const curTarNum = target - num;
-       if (num in hashTab) {
-         return [i,hashTab[num]]
-       } else {
-         hashTab[curTarNum] = i;
-       }
+  const hashTab = {};
+  for (let i = 0; i < nums.length; i ++) {
+    const num = nums[i];
+    const curNum = target - num;
+    if (num in hashTab) {
+      return [hashTab[num], num];
+    } else {
+      hashTab[curNum] = num;
     }
-   
-    console.log(hashTab)
+  }
 }
 
 console.log(twoSum2(nums,9))

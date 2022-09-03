@@ -4,7 +4,7 @@ const nums = [1,2,2,3,3]
 
 //解题原理1
 // 建立哈希表 标识每个元素出现了一次
-// 时间复杂度 0^2n  空间复杂度 0^n 
+// 时间复杂度 0(n^2)  空间复杂度 0^n 
 const onceNum = (nums) => {
   const cache = {};
   nums.forEach((num) => {
@@ -18,7 +18,7 @@ const onceNum = (nums) => {
 }
 
 // 针对上面优化算法
-// 时间复杂度为O ^ n 占用了一点点的额外空间
+// 时间复杂度为O(n) 占用了一点点的额外空间
 const onceNumSub = (nums) => {
    const cache = new Map();
    nums.forEach((item) => {

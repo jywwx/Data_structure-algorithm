@@ -9,7 +9,6 @@
  */
 const hasCyle = (head) => {
    const cache = new Set();
-
    while(head) {
       if (cache.has(head.val)) {
         return true
