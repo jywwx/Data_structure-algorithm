@@ -55,6 +55,7 @@ function quickSort (arr) {
 function quick1(arr,start,end) {
   // 当前方法的逻辑就是 取 数组的第一个标志位 把 小于标志位放左边 大于标志位的放右边
   // 数组双指针遍历法
+  // flag 不能是重复的元素
    const init = start;
    const flag = arr[init];
 
@@ -63,11 +64,9 @@ function quick1(arr,start,end) {
      while (arr[end] > flag) {
         end --;
      }
-
      while (arr[start] < flag) {
        start ++;
      }
-
      if (start < end) {
         [arr[start],arr[end]] = [arr[end],arr[start]];
         end --;
@@ -86,4 +85,4 @@ function quickSort2(arr,start,end) {
   }
   return arr;
 }
-console.log(quickSort2(arr, 0, arr.length -1),"quickSort2(arr)")
+console.log(quickSort2(arr, 0, arr.length -1),arr,"quickSort2(arr)")
