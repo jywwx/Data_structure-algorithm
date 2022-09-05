@@ -1,6 +1,6 @@
 // 冒泡排序
 let arr = require('./arr');
-// 时间复杂度  O(n*n)
+// 时间复杂度  O(n*n) 严格的讲 是log(n * (n/2))
 const cur = arr[0];
 console.log(arr)
 // console.log(arr.sort((a,b) => b - a))
@@ -52,36 +52,38 @@ function quickSort (arr) {
 // i 和 j 的值交换下位置
 // 当 i j 即两个指针 亦即 数组的索引值 相遇的时候
 
-
 function quick1(arr,start,end) {
-  // 双指针
-  let init = start;
-  let flag = arr[init];
-  start ++;
+  // 当前方法的逻辑就是 取 数组的第一个标志位 把 小于标志位放左边 大于标志位的放右边
+  // 数组双指针遍历法
+   const init = start;
+   const flag = arr[init];
 
-  while (start <= end) {
-     while(arr[end] > flag) {
-        end --
+   start ++;
+   while (start <= end) {
+     while (arr[end] > flag) {
+        end --;
      }
+
      while (arr[start] < flag) {
-        start ++
-     } 
-     if (start < end) {
-       [arr[start],arr[end]] = [arr[end],arr[start]];
        start ++;
-       end --;
      }
-  }
-  [arr[init],arr[start-1]] = [arr[start-1],arr[init]];
-  return start;
+
+     if (start < end) {
+        [arr[start],arr[end]] = [arr[end],arr[start]];
+        end --;
+        start ++;
+     }
+   }
+   [arr[init],arr[start-1]] = [arr[start-1],arr[init]]
+   return start;
 }
 
 function quickSort2(arr,start,end) {
   if (start < end) {
-     let index = quick1(arr,start,end);
+     let index = quick1(arr,start,end); // 标志位的索引值
      quickSort2(arr,start,index -1);
      quickSort2(arr,index,end);
   }
   return arr;
 }
-console.log(quickSort2(arr,0,arr.length -1),"quickSort2(arr)")
+console.log(quickSort2(arr, 0, arr.length -1),"quickSort2(arr)")
