@@ -85,7 +85,6 @@ var threeSum2 = (nums) => {
 console.log(threeSum2([-4,-1,-1,0,1,2]));
 
 
-
 // 手写一个闭包
 function closeure () {
     const a = 1;
