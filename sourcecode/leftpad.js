@@ -19,23 +19,18 @@ function leftpad(str,length,ch) {
 // '00‘ + ’00'
  
 function leftpad2(str,length,ch) {
-   const len = length = str.length;
-   let total = '';
-   while (true) {
-      if (len & 1) {
-        total += ch;
-      }
-
-      if (len === 1) {
-        return total + str;
-      }
-      ch += ch;
-      len >> 1;
-   }
+  let len = length - str.length,total = '';
+  while (true) {
+   console.log(len,'len',total,'total',ch,'ch')
+    if (len & 1) {
+      total += ch;
+    }
+    if (len === 1) {
+      return total + str;
+    }
+    ch += ch;
+    len = len >> 1;
+    console.log(total);
+  }
 }
-
-
-
-
-
-console.log(leftpad('hello',10,'0'))
+console.log(leftpad2('hello',26,'0'))
