@@ -21,7 +21,6 @@ function leftpad(str,length,ch) {
 function leftpad2(str,length,ch) {
   let len = length - str.length,total = '';
   while (true) {
-   console.log(len,'len',total,'total',ch,'ch')
     if (len & 1) {
       total += ch;
     }
@@ -33,4 +32,3 @@ function leftpad2(str,length,ch) {
     console.log(total);
   }
 }
-console.log(leftpad2('hello',26,'0'))
