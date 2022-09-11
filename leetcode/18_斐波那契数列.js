@@ -25,4 +25,40 @@ var feibonaci = function (n) {
    // 数学公式
    // 还可以用矩阵去优化公式中浮点数的N次方计算
 }
+
+
+function helper (memo,n) {
+   if (n <= 1) {
+      return n;
+   }
+
+   if (memo[n]) {
+     return memo[n];
+   }
+   
+   memo[n] = helper(memo,n-1) + helper(memo,n-2);
+   return memo[n];
+}
+
+
+var fib = function (n) {
+   const memo = [];
+   return helper(memo,n);
+}
+
+
+var fib2 = function (n) {
+   if (n<=1) {
+     return n;
+   }
+   let dp1 = 0, dp2 =1;
+   for(let i =0; i < n; i ++) {
+     let dp3 = dp1 + dp2;
+     dp1 = dp2;
+     dp2 = dp3;
+   }
+   return dp1 + dp2;
+}
+
+
 console.log(feibonaci(7))

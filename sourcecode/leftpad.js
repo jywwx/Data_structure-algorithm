@@ -21,14 +21,16 @@ function leftpad(str,length,ch) {
 function leftpad2(str,length,ch) {
   let len = length - str.length,total = '';
   while (true) {
-    if (len & 1) {
-      total += ch;
-    }
-    if (len === 1) {
-      return total + str;
-    }
-    ch += ch;
-    len = len >> 1;
-    console.log(total);
+     if (len & 1) {
+       total += ch;
+     }
+
+     if (len === 1) {
+       return total += str;
+     }
+     
+     ch += ch;
+     len = len >> 1;
   }
 }
+console.log(leftpad2('rrrr',10,'0'))
