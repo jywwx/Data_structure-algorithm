@@ -42,27 +42,25 @@ const invertTree2 = (root) => {
 
 // 遍历Tree
 const iteratorForTree = (root) => {
-    if (!root) {
-      return null;
+  if (!root) {
+     return null;
+  }
+  const stack = [];
+  const ret = [];
+  stack.push(root);
+  while (stack.length) {
+    const root = stack.pop();
+    ret.push(root.val);
+    
+    if (root.right) {
+      stack.push(root.right);
     }
-    const result = [];
 
-    const stack = [];
-    stack.push(root);
-
-    while (stack.length) {
-       const cur = stack.pop();
-       result.push(cur.val)
-       if (cur.right) {
-        stack.push(cur.right)
-       }
-
-       if (cur.left) { 
-        stack.push(cur.left) 
-       }
-
+    if (root.left) {
+      stack.push(root.left)
     }
-    console.log(result,"result")
+  }
+  return ret;
 }
 
 // 时间复杂度为O(n)
