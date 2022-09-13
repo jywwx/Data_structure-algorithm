@@ -29,15 +29,15 @@ const twoSum = (nums,target) => {
 // forEach 不可中断返回 
 // 题目要求 算法时间复杂度为o(n) 找出数组当中的两个数的和为target 目标值
 const twoSum2 = (nums,target) => {
-  const hashTab = {};
-  for (let i = 0; i < nums.length; i ++) {
-    const num = nums[i];
-    const curNum = target - num;
-    if (num in hashTab) {
-      return [hashTab[num], num];
-    } else {
-      hashTab[curNum] = num;
-    }
+  const hastab = {}
+  for (let i = 0; i < nums.length; i++) {
+     const num = nums[i];
+     const curNum = target - num;
+     if (num in hastab) {
+       return [hastab[num],num]
+     } else {
+       hastab[curNum] = num;
+     }
   }
 }
 
