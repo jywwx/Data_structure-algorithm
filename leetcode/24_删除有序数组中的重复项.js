@@ -10,25 +10,29 @@
  * 本题可以用暴力破解 建新数组 
  * 题目要求不使用额外空间
  * 也可以使用set
+ * 数组原地去重 
+ * 时间复杂度 O(n) 空间复杂度 O(1);
  */
 // 本题目解题思路 快慢指针 
 // slow fast 
 var removeDuplicates = function (nums) {
-    if (nums.length === 0) {
-        return 0;
+  if (nums.length === 0) {
+    return 0;
+  }
+  let slow = 0, fast = 0;
+
+  while (fast < nums.length) {
+    if (nums[fast] !== nums[slow]) {
+      slow ++;
+      nums[slow] = nums[fast]
     }
-    let slow = 0,fast = 0;
-    while (fast < nums.length) {
-      if (nums[fast] !== nums[slow]) {
-        slow ++;
-        nums[slow] = nums[fast];
-      }
-      fast ++;
-    }
-    return slow + 1;
+    fast ++;
+  }
+  console.log(nums,"sad")
+  return slow + 1;
 }
 
-const nums = [1,2,3,4,1,3,4];
+const nums = [1,1,2,2,3,4,];
 
 console.log(removeDuplicates(nums),"nums")
 

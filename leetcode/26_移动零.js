@@ -6,18 +6,18 @@
  */
 
 var moveZeros = function (nums) {
-   if (nums.length === 0) {
-      return 0;
-   }
-   let slow = 0, fast = 0;
+  if (nums.length === 0) {
+    return [];
+  }
+  let slow = 0, fast = 0;
 
-   while (fast < nums.length) {
-     if (nums[fast]) {
-       [nums[slow],nums[fast]] = [nums[fast],nums[slow]];
-       slow ++;
-     }
-     fast ++
-   }
-   return nums;
+  while (fast < nums.length) {
+    if (nums[fast] !== nums[slow]) {
+      [nums[slow],nums[fast]] = [nums[fast],nums[slow]];
+      slow ++;
+    }
+    fast ++
+  }
+  return nums;
 }
 console.log(moveZeros([0,1,0,3,12]))
