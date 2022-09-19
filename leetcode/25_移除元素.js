@@ -48,7 +48,7 @@ var removeElement2 = function (nums,val) {
    if (nums.length === 0) {
       return 0
    }
-   // 单指针加循环 本质上也是
+   // 单指针加循环 本质上也是双指针
    let k = 0;
    for (let i = 0; i < nums.length; i ++) {
      if (nums[i] !== val) {
