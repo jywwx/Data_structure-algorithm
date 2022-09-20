@@ -16,7 +16,7 @@ const threeSum = (nums) => {
    // 最小的 + 最大之和 如果比目标值大 说明小 缩小这个值  最大值 左移 否则 最小值右移
    nums.sort((a,b)=> a-b);
    for (let i = 0; i< nums.length; i ++) {
-      if (nums[i] === nums[i -1 ]) {
+      if (nums[i] === nums[i -1]) {
         continue;
       }
       // nums[i] 为基准 找另外两个数组 数组之和 等于 -nums[i]
