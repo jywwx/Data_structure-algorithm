@@ -10,20 +10,19 @@
  * 滑动窗口解法 终于见到了  理解精髓 是可以动态控制窗口的大小
  */
 var minSubArrayLen = function (target,nums) {
-   let len = nums.length;
-   let slow = 0, fast = 0;
-   let sum = 0;
-
-   let result = nums.length + 1;
+   let slow = 0, fast = 0, sum = 0;
+   const len = nums.length ;
+   let result = len + 1;
 
    while (fast < len) {
-      sum += nums[fast ++];
-      while (sum >= target) {
-        const subLen = fast - slow;
-        result = result > subLen ? subLen : result;
-        sum -= nums[slow--]
-      }
+     sum += nums[fast ++];
+     if (sum >= target) {
+       const subLen = fast - slow;
+       result = result > subLen ? subLen : result;
+       sum -= nums[slow ++]
+     }
    }
+
    return result > len ? 0 : result;
 }
 
