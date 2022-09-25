@@ -4,7 +4,7 @@
 // 1 => 2 => 3 => 4
 var reverseList = function (head) {
    if (!head || !head.next) {
-      return head;
+     return head;
    }
    let prev = null, cur = head;
    while (cur) {
@@ -13,4 +13,5 @@ var reverseList = function (head) {
      prev = cur;
      cur = next;
    }
+   return head;
 }

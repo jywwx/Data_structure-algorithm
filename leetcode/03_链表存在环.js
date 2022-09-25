@@ -9,15 +9,15 @@
  */
 const hasCyle = (head) => {
    const cache = new Set();
-   while(head) {
+
+   while (head) {
       if (cache.has(head.val)) {
-        return true
+        return true;
       } else {
-        cache.add(head.val)
+         cache.add(head.val)
       }
       head = head.next;
    }
-   return false;
 }
 
 /**
@@ -26,15 +26,13 @@ const hasCyle = (head) => {
  * 线性表(链表或者数组)  双指针解法
  */
 const hasCyle2 = (head) => {
-   let slow = head;
-   let fast = head;
-
-   while(fast && fast.next) {
-      fast = fast.next.next;
-      slow = slo.next;
-      if (fast === slow) {
-         return true
+    let slow = head,fast = head;
+    while (slow && fast) {
+      slow = head.next;
+      fast = head.next.next;
+      if (slow === fast) {
+        return true
       }
-   }
-   return false;
+    }
+    return false;
 }
