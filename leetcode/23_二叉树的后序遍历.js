@@ -35,4 +35,26 @@ var inorderTraversal = function (tree) {
   dfs(tree);
   return ret; 
 }
+
+/**
+ * 根据栈进行 树的遍历
+ */
+
+var preorderTraversal2 = function (root) {
+  const ret = [];
+  if (!root) {
+    return ret;
+  }
+
+  const stack = [root];
+  while (stack.length) {
+    const cur = stack.pop();
+    ret.push(cur.val);
+    cur.right && (stack.push(cur.right));
+    cur.left && (stack.push(cur.left));
+  }
+  return ret;
+}
+
+
 console.log(inorderTraversal(root))
