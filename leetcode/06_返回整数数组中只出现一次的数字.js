@@ -39,9 +39,7 @@ const onceNumSub = (nums) => {
 // 最优解
 const onceNum2 = (nums) => {
     let ret = 0;
-    nums.forEach((item) => {
-        ret ^= item;
-    });
+    nums.forEach((item) => (ret ^= item));
     return ret;
 }
 

@@ -49,11 +49,24 @@ var isSameTree2 = function(p,q) {
      
 // 迭代实现
 var isSameTree3 = function(p,q) {
-    if (p == null && q === null) {
-      return true
-    }
+  if (p == null && q === null) {
+    return true
+  }
 
-    if (p === null || q === null) {
-      return false
+  if (p === null || q === null) {
+    return false
+  }
+  const pStack =[p],qStack=[q];
+  while (pStack.length && qStack.length) {
+    const curP = pStack.pop();
+    const curQ = qStack.pop();
+    if (curP.val !== curQ.val) {
+      return false;
     }
+    curP.left && pStack.push(curP.left);
+    curP.right && pStack.push(curP.right);
+    curQ && qStack.push(curQ.left);
+    curQ &&qStack.push(CurQ.right);
+  }
+  return true;
 }
