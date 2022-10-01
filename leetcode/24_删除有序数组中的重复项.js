@@ -28,7 +28,6 @@ var removeDuplicates = function (nums) {
     }
     fast ++;
   }
-  console.log(nums,"sad")
   return slow + 1;
 }
 

@@ -12,9 +12,9 @@ function TreeNode (val,left,right) {
  const root = new TreeNode(0,left1,right1);
 
  const getMaxtTreeNum = (root) => {
-   if (!root) {
-     return 0;
-   }
+    if (!root) {
+      return 0;
+    }
     return Math.max(getMaxtTreeNum(root.left),getMaxtTreeNum(root.right)) + 1;
  }
  console.log(getMaxtTreeNum(root),"getMaxtTreeNum(root)");
