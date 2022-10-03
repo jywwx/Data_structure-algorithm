@@ -6,18 +6,16 @@ var rightSideView = function (root) {
    if (!root) {
       return [];
    }
-
    const ret = [];
    const queue = [root];
    while (queue.length) {
       const len = queue.length;
       while (len--) {
         const node = queue.shift();
-        len === 0 && curLevel.push(node.val);
+        len === 0 && ret.push(node.val);
         node.left && queue.push(node.left);
         node.right && queue.push(node.right);
       }
-      ret.push(curLevel[curLevel.length -1])
    }
    return ret;
 }

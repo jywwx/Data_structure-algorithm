@@ -15,25 +15,24 @@ var sortedSquares = function (nums) {
   //return nums.map((num) => num * num).sort((a,b) => a - b);
 
   //[-4,-1,0,3,10]
-  if (nums.length === 0) {
-     return [];
+  if (nums.length === 0){
+    return [];
   }
 
-  let left = 0, right = nums.length - 1;
-
-  const arr= Array(nums.length);
-  let k = right;
+  let left = 0, k = right = nums.length - 1;
+  const arr = Array(nums.length);
 
   while (left <= right) {
-    const r = nums[right] * nums[right];
-    const l = nums[left] * nums[left];
-    if (l < r) {
-      arr[k] = r;
-      right --;
-    } else {
-      arr[k] = l;
-      left ++;
-    }
-    k--;
+     const lv = nums[left] * nums[left];
+     const rv = nums[right] * nums[right];
+     if (rv > lv) {
+        arr[k] = rv;
+        right --;
+     } else {
+        arr[k] = lv;
+        left ++;
+     }
+     k--;
   }
+  return arr;
 }

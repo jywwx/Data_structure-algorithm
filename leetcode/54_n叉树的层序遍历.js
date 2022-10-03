@@ -25,7 +25,7 @@ var levelOrder = function (root) {
       while (len --) {
         const node = queue.shift();
         curLevel.push(node.val);
-        // (node.children?? []).forEach((child) => queue.push(child))
+        (node.children?? []).forEach((child) => queue.push(child))
         // 或者
         // queue.contact(node.children?? [])
       } 

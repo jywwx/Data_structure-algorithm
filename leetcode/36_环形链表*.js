@@ -8,7 +8,7 @@
  */
 
 var detectCycle = function (head) {
-   // 解题思：
+   // 解题思路：
     //             b
     //     a      ---*--
     // ----------|      |
@@ -43,7 +43,7 @@ var detectCycle = function (head) {
           return null
        }
 
-       if (fast == slow) {
+       if (fast === slow) {
           let cur = head;
           while (cur !== slow) {
              cur = cur.next;

@@ -12,8 +12,6 @@ var binaryTreeDepths = function (root) {
       if (!node.left && !node.right) {
         reult.push(path + node.val + '->')
       }
-
-
       path += node.val+ '->';
       travese(node.left,path);
       travese(node.right,path);

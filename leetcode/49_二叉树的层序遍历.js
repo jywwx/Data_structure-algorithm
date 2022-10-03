@@ -6,14 +6,12 @@
 var levelOrder = function (root) {
     const result = [];
     const quene = [root];
-
     if (!root) {
        return [];
     }
     while (quene.length) {
       const len = quene.length;
       const cur = [];
-
       for (let i = 0; i < len; i ++) {
          const node = quene.shift();
          cur.push(node.val);
@@ -34,12 +32,11 @@ var levelOrder2 = function (root) {
    while (queue.length) {
     const curLevel = [];
     let len = queue.length;
-    while (len > 0) {
+    while (len--) {
       const node = queue.shift();
       curLevel.push(val);
       node.left && queue.push(node.left);
       node.right && queue.push(node.right);
-      len --;
     }
     ret.push(curLevel);
    }

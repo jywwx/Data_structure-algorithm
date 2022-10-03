@@ -33,7 +33,7 @@ var sumOfLeftLeaves = function (root) {
        }
        const left = node.left;
        if (left && !left.left && !left.right) {
-        sumLeftVal += node.val;
+        sumLeftVal += node.left.val;
        }
        travese(node.left);
        travese(node.right);

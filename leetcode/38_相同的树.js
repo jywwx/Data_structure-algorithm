@@ -65,8 +65,8 @@ var isSameTree3 = function(p,q) {
     }
     curP.left && pStack.push(curP.left);
     curP.right && pStack.push(curP.right);
-    curQ && qStack.push(curQ.left);
-    curQ &&qStack.push(CurQ.right);
+    curQ.left && qStack.push(curQ.left);
+    curQ.right && qStack.push(curQ.right);
   }
   return true;
 }

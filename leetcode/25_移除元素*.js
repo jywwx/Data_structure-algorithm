@@ -39,7 +39,6 @@ var removeElement = function (nums,val) {
      }
      fast ++;
    }
-
    return slow;
 }
 

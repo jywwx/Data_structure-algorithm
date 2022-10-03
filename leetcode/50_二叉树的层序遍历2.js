@@ -12,7 +12,7 @@ var levelOrder = function (root) {
     while (queue.length) {
        const curLevel = [];
        const len = queue.length;
-       while (len > 0) {
+       while (len--) {
           const node = queue.unshift();
           curLevel.push(node.val);
           node.left && curLevel.push(node.left);

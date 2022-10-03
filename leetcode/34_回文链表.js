@@ -5,7 +5,7 @@
 
 var isPalindrome = function (head) {
     // 通过双指针 把链表的 前半截 反转
-    // 思考下 数组 字符串 结构的回文结构 何以解答 应该更简单的 不要忘了你
+    // 思考下 数组 字符串 结构的回文结构 何以解答 应该更简单的 不要忘了你 双指针 头尾同时校验是否满足
     let slow = fast = head; 
     let prev = null;
 
@@ -20,7 +20,7 @@ var isPalindrome = function (head) {
 
     // 21321
     if (fast) {
-       slow = slow.next;
+      slow = slow.next;
     }
 
 

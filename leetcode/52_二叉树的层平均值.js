@@ -4,14 +4,11 @@
  */
 
 var averageOfLevels = function (root) {
-
     const ret = [];
     const queue = [root];
-
     if (!root) {
       return [];
     }
-    
     while (queue.length) {
       let originLen = len =  queue.length
       let sum = 0;

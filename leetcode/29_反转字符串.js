@@ -13,12 +13,12 @@
 var reverseString = function (s) {
     // return s.reverse();
     // 如果s 是字符串 return s.split('').reverse().join('')';
-
-    let left = 0, right = s.length -1;
+    // return s.split('').reverse().join('');
+    let left = 0, right = s.length - 1;
     while (left <= right) {
       [s[left],s[right]] = [s[right],s[left]];
-      left ++;
       right --;
-    }
+      left ++;
+    };
     return s;
 }
