@@ -27,21 +27,24 @@ var lengthOfLIS = function (nums) {
     // 索引值 i,j 如果 nums[j] < nums[i] dp[i] + 1
 
 
-    /** 
-    const n = nums.length;
-    if (n === 0) {
-       return 0;
-    }
+    /**
+      const n = nums.length;
 
-    const dp = Array(n).fill(1);
-    for (let i = 0; i < n; i ++) {
-      for (let j = 0; j < i; j ++) {
-        if (nums[j] < nums[i]) {
-          dp[i] = Math.max(dp[i],dp[j] + 1);
+      if (n === 0) {
+        return 0;
+      }
+
+      const dp = Array(n).fill(1);
+
+      for (let i = 0; i < n; i ++) {
+        for (let j = 0; j < i; j ++) {
+          if (nums[j] < nums[i]) {
+            dp[i] = Math.max(dp[i],dp[j] + 1)
+          }
         }
       }
-    }
-    return Math.max(...dp); */
+      return Math.max(...dp);
+     */
     //以上是动态规划解法
 
     // 贪心算法解法  贪心 + 二分算法解决
