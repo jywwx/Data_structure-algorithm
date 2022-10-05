@@ -6,13 +6,12 @@
  */
 // 算法的时间复杂度是 O(log2^n)
 const isPoerOfTwo = (n) => {
-    while (n > 2) {
-        if (n%2 === 1) {
-          return false
-        }
-       n = Math.floor(n / 2);
-    }
-    return n > 0;
+   while (n > 2) {
+      if (n % 2 ===  1) {
+        return false;
+      }
+      n = n >> 1;
+   }
 }
 
 
