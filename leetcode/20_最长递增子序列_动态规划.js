@@ -5,7 +5,7 @@
  * 子序列是由数组派生而来的序列, 删除(或不删除) 数组中的元素而不改变其余元素的顺序,例如，[3,6,2,7]是数组
  * [0,3,1,6,2,2,7] 的子序列
  */
-// 返回严格递增子序列长度
+// 返回严格递增子序列长度  子序列 之间可以 不相邻
 /**
  * 
  * @param {*} nums 
@@ -44,6 +44,7 @@ var lengthOfLIS = function (nums) {
         }
       }
       return Math.max(...dp);
+      [1,5,2,4]
      */
     //以上是动态规划解法
 
@@ -79,7 +80,22 @@ var lengthOfLIS = function (nums) {
     return arr.length 
 }
 
+var lengthOfLIS2 = function (nums) {
+   const n = nums.length;
+   if (n === 0) {
+     return 0;
+   }
 
+   const dp = Array(n).fill(1);
+   for (let i = 0; i < n; i ++) {
+     for (let j = 0; j < i; j ++) {
+         if (nums[i] > nums[j]) {
+          dp[i] = Math.max(dp[i],dp[j] + 1);
+         }
+     }
+   }
+   return Math.max(...dp);
+}
 
 // 回想  二分查找 数组原地排序
 var quickSort = function (start,end,nums) {
@@ -114,4 +130,4 @@ var quickSort1 = function(nums,start,end) {
   }
 }
 
-console.log(lengthOfLIS([0,1,0,3,2,3]))
+console.log(lengthOfLIS2([1,5,2,4]))
