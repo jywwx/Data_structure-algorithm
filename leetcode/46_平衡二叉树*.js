@@ -7,27 +7,25 @@
  */
 
 var isBalanced = function (root) {
-    function travese(treeNode) {
-      if (!treeNode) {
-         return 0;
-      }
-
-      const leftDepth = travese(treeNode.left);
-      if (leftDepth ===  -1) {
+   const travese = (node) => {
+      if (!node) {
          return -1;
       }
-      const rightDepth = travese(treeNode.right);
+      const leftDepth = travese(node.left);
+      if (leftDepth === -1) {
+         return -1;
+      }
 
+      const rightDepth = travese(node.right);
       if (rightDepth === -1) {
          return -1;
       }
 
-      if (Math.abs(leftDepth - rightDepth) > 1) {
+      if (Math.abs(leftDepth-rightDepth) > 1) {
          return -1;
       } else {
-         return Math.max(leftDepth,rightDepth) + 1;
+         return Math.max(leftDepth,rightDepth) + 1
       }
-    }
-
-    return travese(root) !== -1;
+   }
+   travese(root);
 }

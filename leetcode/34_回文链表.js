@@ -18,7 +18,7 @@ var isPalindrome = function (head) {
       show.next = next;
     }
 
-    // 21321
+    // 21321 **
     if (fast) {
       slow = slow.next;
     }
