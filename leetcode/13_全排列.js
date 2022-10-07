@@ -7,23 +7,24 @@
  */
 var permute = function(nums) {
 
-   const backTrack = (list,tem,nums) => {
+  const backTrack = (list,tem,nums) => {
      if (tem.length === nums.length) {
        return list.push([...tem]);
      }
+
      for (let i = 0; i < nums.length; i ++) {
-       if (tem.includes(nums[i])) {
-         continue;
-       }
-       tem.push(nums[i]);
-       backTrack(list,tem,nums);
-       tem.pop();
+        if (tem.includes(nums[i])) {
+          continue;
+        }
+        tem.push(nums[i]);
+        backTrack(list,tem,nums);
+        tem.pop();
      }
-   }
-   
-   const list = [];
-   backTrack(list,[],nums);
-   return list;
+  }
+
+  const list = [];
+  backTrack(list,[],nums);
+  return list;
 }
 
 // 回溯的全部路径的公式

@@ -22,6 +22,7 @@ const board = [
     ['S','F','C','S'],
     ['A','D','E','E']
 ],word = 'ABCCED';
+
 var exist = function (board,word) {
     if (board.length === 0) {
        return false;
@@ -59,7 +60,7 @@ var exist = function (board,word) {
        }
 
        if (cur === word.length - 1) {
-          return true;
+         return true;
        }
        board[i][j] = null;
        const ret = find(i + 1,j,cur + 1) || find(i - 1,j,cur + 1) || find(i,j + 1,cur + 1) || find(i,j - 1,cur + 1);
