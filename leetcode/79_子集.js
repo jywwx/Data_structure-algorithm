@@ -1,6 +1,11 @@
 /**
  * 给你一个整数数组nums，数组中的元素互不相同。返回该数组所有可能的子集（幂集）。
  */
+/**
+ * 
+ * @param {*} nums 
+ * @returns 
+ */
 var subsets = function (nums) {
 
    const ret = [];

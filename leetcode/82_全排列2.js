@@ -28,6 +28,7 @@ var permuteUnique2 = function (nums) {
   // 输入的数组 数字有重复， 但是排列 不重复
    const ret = [];
    const path = [];
+   nums.sort();
    bactrack([]);
    return ret;
    function bactrack(used) {
