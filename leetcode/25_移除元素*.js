@@ -39,7 +39,7 @@ var removeElement = function (nums,val) {
      }
      fast ++;
    }
-   return slow;
+   return nums //.slice(0,slow);
 }
 
 
@@ -60,4 +60,4 @@ var removeElement2 = function (nums,val) {
    return k;
 }
 let n = 0;
-console.log(removeElement2([3,3,3,4,5],3))
+console.log(removeElement([3,3,3,4,5],3))
