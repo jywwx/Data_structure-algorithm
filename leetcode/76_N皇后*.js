@@ -33,25 +33,22 @@ console.log(solveNQueues(4))
 
 
 function solveNQueues2(n) {
-   const ret = [];
-   backtrack(0,[]);
-   return ret;
-   function backtrack(row,temp) {
-      if (row === n) {
-        ret.push(temp.map((c) => {
-          const arr = Array(n).fill('.');
-          arr[c] = 'Q';
-          return arr.join('');
-        }));
-        return;
-      }
-
-      for (let col = 0; col < n; col++) {
-        const canNotSet = temp.some((c,r) =>  (c === col) || ((c + r) === (col + row)) || ((row -col) === (r - c)));
-        if (canNotSet) {
-           continue;
-        }
-        solveNQueues2(n + 1, [...temp,col]);
-      }
+  const ret = [];
+  backTrack(0,[])
+  function backTrack(row,tem) {
+   if (row === n) {
+      ret.push(tem.map((c) => {
+         const arr = Array(n).fill(',');
+         arr[c] = 'Q';
+         return arr.join('');
+      }))
+   } 
+   for (let col = 0; col < n; col ++) {
+     const canNotSet = tem.some((r,c) => (c === col) || ((r-c) === (row -col)) || (row + col) === (r + c));
+     if (canNotSet) {
+       continue 
+     }
+     backTrack(row + 1,[...tem,col]);
    }
+  }
 }
