@@ -17,7 +17,7 @@ var sortedSquares = (nums) => {
       right --;
     } else {
       arr[k] = lv;
-      left --;
+      left ++;
     }
     k--;
   }
