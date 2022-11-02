@@ -11,10 +11,12 @@ var rob = function (nums) {
     //边界条件 亦即初始条件
     // 递推公式
     // dp[i] = Math.max(dp[i - 1],dp[i - 2] + nums[i]);
+    // 解释 偷i 的前一个 当前i 就不能偷
+    // 偷 i - 2 个 当前i 可以偷 即可判断两种偷的方式的最大值
     // 偷到每个房间时 在当前房间 能偷到的最大金额值
-    const dp = [nums[0],nums[1]]
-    for (let i = 2; i < nums.length; i ++) {
-       dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]); 
+    const dp  = [nums[0], Math.max(nums[0],nums[1])];
+    for (let i = 0; i < nums.length; i++) {
+      dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
     }
     return dp[nums.length - 1];
 }
