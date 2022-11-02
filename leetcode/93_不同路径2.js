@@ -19,7 +19,7 @@ var uniquePathWithObstacles = function (obstacleGrid) {
       dp[i][0] = 1;  
    }
 
-   for (let i = 0; i < n && obstacleGrid[0][j]; i ++) {
+   for (let i = 0; i < n && obstacleGrid[0][j] !== 1; i ++) {
        dp[0][i] = 1
    }
 
