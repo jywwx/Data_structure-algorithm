@@ -14,16 +14,14 @@
  */
 const points = [[1,6],[2,8],[7,12],[10,16]];
 var findMinArrowShot = function (points) {
-  points.sort((a,b) => a[0] - b[0]);
-  let result = 0;
-  for (let i = 0; i < points.length; i ++) {
-     if (points[i][0] > points[i - 1][1]) {
-        // 没有重叠 必须要用一支箭
+   points.sort((a,b) => a[0] - b[0]);
+   let result = 0;
+   for (let i = 0; i < points.length; i ++) {
+      if (points[i][0] > points[i -1][1]) {
         result ++;
-     } else {
-        // 尽可能重叠多的相领区间
-        points[i][1] = Math.min(points[i][1],points[i - 1][1]);
-     }
-  }
-  return result;
+      } else {
+         points[i][1] = Math.min(points[i][0],points[i - 1][1]);
+      }
+   }
+   return result;
 }

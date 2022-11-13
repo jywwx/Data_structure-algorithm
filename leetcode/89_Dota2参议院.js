@@ -15,17 +15,19 @@
  * 假设每一位参议员都足够聪明，会为自己的政党做出最好的策略，你需要预测那一方最终会宣布胜利并在DOta2游戏中决定改变。输出应该是Radiant 或Dire
  */
 var preictPartyVictory = function (senate) {
-    const queue = senate.split('');
-    const stack = [];
-    while (queue[0]) {
-      const s = queue.shift();
-      if (!stack.length || s === stack[stack.length - 1]) {
-        stack.push(s);
+   const queue = senate.split('');
+   const stack = [];
+    
+   while (stack[0]) {
+     const s = queue.unshift();
+      if (!stack[0] || s === stack[stack.length - 1]) {
+         stack.push(s);
       } else {
         queue.push(stack.pop());
       }
-    }
-    return stack[0] === 'R' ? 'Radiant' : 'Dire';
+   }
+
+   return stack[0] === 'R' ? 'Radiant' : 'Dire';
     
 }
 console.log(preictPartyVictory('RDD'));

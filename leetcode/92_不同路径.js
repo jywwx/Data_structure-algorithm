@@ -7,7 +7,7 @@
  */
 
 var uniquePaths = function (m,n) {
-   const dp = Array(m).fill(m).map((i) => Array(n).fill(''));
+   const dp = Array(m).fill('').map((i) => Array(n).fill(''));
 
    for (let i = 0; i < m; i ++) {
       dp[i][0] = 1;

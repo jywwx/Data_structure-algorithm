@@ -12,29 +12,29 @@
  * @param {*} s 
  */
 var restoreIpAdesses = function (s) {
-    const ret = [];
-    const path = [];
+   const ret = [];
+   const path = [];
+   backtrack(0);
+   return ret;
 
-    bactrack(0);
-    return ret;
+   function backtrack(index) {
+     if (path.length > 4) {
+        return;
+     }
 
-    function bactrack(i) {
+     if (path.length === 4 && index === s.length ) {
+        ret.push([...path]);
+     }
 
-        if (path.length > 4) {
-            return;
-        }
-        if (path.length === 4 && i === s.length) {
-           ret.push([path.join('.')])
-        }
-        for (let j = i; j < s.length; j ++) {
-           const str = s.substr(i,j - i + 1);
-           if (Number(str) > 255 || (str.length > 1 && str[0] === '0')) {
-              break;
-           }
-           path.push(str);
-           bactrack(j + 1);
-           path.pop(); 
-        }
-    }
+     for (let i = index; i < s.length; i ++) {
+       const str = s.substr(i, j - i + 1);
+       if ((Number(str) > 255) || (str.length > 1 && str[0] === '0')) {
+          break;
+       }
+       path.push(str);
+       backtrack(index + 1);
+       path.pop();
+     }
+   }
 }
 console.log(restoreIpAdesses('25525511135'),"//")

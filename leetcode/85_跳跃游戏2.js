@@ -12,10 +12,10 @@ var jump = function (nums) {
    let step = 0;
 
    for (let i = 0; i < nums.length; i ++) {
-      nextIndex = Math.max(num[i] + i, nextIndex);
+      nextIndex = Math.max(nums[i] + i, nextIndex);
       if (curIndex === i) {
          curIndex = nextIndex;
-         step ++
+         step ++;
       }
    }
 

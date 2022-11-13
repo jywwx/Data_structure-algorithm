@@ -1,7 +1,19 @@
 /**
+ * 
+ * 1.分割问题 把一个字符串 进行分割  分割之后的每个子字符串 都是 回文字符串 给出分割方法
+ * 2.另一种题型 是 找出字符串所有是回文字符串的子字符串  思考下两种解法
+ * 
+ * 
+ * 
  * 给你一个字符串s,请你将s 分隔成一些子串，使每个子串 都是回文串。返回s所有可能的分隔方案
  * 
  * 回文串 是正着读 和 反着读都一样的字符串。
+ */
+
+/**
+ *  
+ * @param {*} s 
+ * @returns 
  */
 
 var partition = function (s) {
@@ -74,4 +86,4 @@ function isPalindrome (s,l,r) {
 
 
 // console.log(partition('abcba'),"//")
-console.log(partition2('abcba'),'第二解')
+console.log(partition2('dabcba'),'第二解')
