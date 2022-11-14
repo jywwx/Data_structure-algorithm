@@ -24,7 +24,10 @@ var maxProfit2 = function (prices) {
   dp[0] = [-prices[0],0];
 
   for (let i = 0; i < prices.length; i ++) {
-     dp[i] = [Math.max(dp[i -1][0],-prices[i]),Math.max(dp[i -1][1],prices[i] + dp[i -1][0])]
+    dp[i] = [
+      Math.max(dp[i -1][0],-prices[i]),
+      Math.max(dp[i - 1][1], prices[i])
+    ]
   }
   return dp[prices.length - 1][1];
 }
