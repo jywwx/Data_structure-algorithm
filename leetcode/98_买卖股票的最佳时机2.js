@@ -5,25 +5,29 @@
  * 返回你能获得的最大利润。
  * 
  * 可以多次买卖 但是每天只能持有一只股票
+ * 
+ * 不限购买出售次数
  */
 var maxProfit = function(prices) {
    // 贪心算法
-   let ret = 0;
-   for (let i = 1; i < prices.length; i ++) {
-       if (prices[i] - prices[i -1] > 0) {
-          ret += prices[i] - prices[i -1];
-       }
-   }
-   return ret;
+  let ret = 0;
+  for (let i = 0; i < prices.length; i ++) {
+    if (prices[i] - prices[i - 1] > 0) {
+       ret += prices[i] - prices[i - 1]
+    }
+  }
+  return ret;
 }
 
 var maxProfit2 = function (prices) {
-   let len = prices.length;
    let has = -prices[0];
    let notHas = 0;
-   for (let i = 1; i < len; i ++) {
-      has = Math.max(has,notHas-prices[i]);
-      notHas = Math.max(notHas,has + prices[i]);       
+   for (let i = 1; i < prices.length; i ++) {
+      has = Math.max(has,notHas - prices[i]);
+      notHas = Math.max(notHas,has + prices[i]);
    }
    return notHas;
 }
+
+const prices = [1,2,1,9];
+console.log(maxProfit2(prices),"///");
