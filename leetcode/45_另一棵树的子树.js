@@ -30,4 +30,34 @@ var isSubTree = function (root,subTree) {
    }
 
    return isSameTree(root.left,subTree) || isSameTree(root.right,subTree);
+
+}
+
+function isSubTree (root,subtree) {
+  function isSametree(p,q) {
+     if (p === null && q === null) {
+        return true
+     }
+
+     if ([p,q].includes(null)) {
+        return false
+     }
+
+     if (p.val === q.val) {
+        return true;
+     }
+     return isSubTree(p.left,p.right);
+  }
+
+  if (!root) {
+    return false;
+  }
+  
+  if (root.val === subtree.val) {
+    if (isSametree(root,subtree)) {
+      return true
+    }  
+  }
+
+  return isSameTree(root.left,subTree) || isSameTree(root.right,subTree);
 }

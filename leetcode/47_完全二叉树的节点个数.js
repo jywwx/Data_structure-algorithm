@@ -8,13 +8,16 @@
  */
 // 出题人偏题了 明明题解就是 统计二叉树的个数
 var countNodes = function (root) {
-    function travese (treeNode) {
-       if (!treeNode) {
-         return 0;
-       }
-       const leftNum = travese(treeNode.left);
-       const rightNum = travese(treeNode.right);
-       return leftNum + rightNum + 1;
-    }
-    return travese(root);
+   function travese(treeNode) {
+      if (!treeNode) {
+        return 0;
+      }
+
+      const leftNodeNum = travese(treeNode.left);
+      const rightNodeNum = travese(treeNode.right);
+
+      return leftNodeNum + rightNodeNum + 1;
+   }
+
+   return travese(root);
 }
