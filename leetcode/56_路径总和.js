@@ -40,7 +40,7 @@ var hasPathSum2 = function (root,targetSum) {
        return false;
     }
     if (!root.left && !root.right) {
-       return root.val === targetSum;
+      return root.val === targetSum;
     }
     const offset = targetSum - root.val;
     return hasPathSum2(root.left,offset) || hasPathSum2(root.right,offset);

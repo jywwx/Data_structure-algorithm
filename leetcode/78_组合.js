@@ -15,9 +15,9 @@ var combine = function (n,k) {
     }
 
     for (let j = i; j <= n - k + path.length + 1; j ++) {
-       path.push(j);
-       backtrack(n,k,j + 1);
-       path.pop();
+      path.push(j);
+      backtrack(n,k,j + 1);
+      path.pop();
     }
 
    }

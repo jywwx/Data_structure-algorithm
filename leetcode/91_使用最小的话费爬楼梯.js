@@ -10,8 +10,9 @@
 // dp 你到第i个台阶所需要的最小花费，是do[i];
 var minCostClimbingStairs = function (cost) {
    const dp = [cost[0],cost[1]];
+
    for (let i = 2; i < cost.length; i ++) {
-     dp[i] = Math.min(dp[i - 1],dp[i - 2]) + cost[i];
+    dp[i] = Math.min(cost[i - 1], cost[i - 1]) + cost[i]; 
    }
-   return Math.min(dp[cost.length - 1], dp[cost.length - 2]);
+   return Math.min(cost[cost.length - 1], cost[cost.length - 2]);
 }
