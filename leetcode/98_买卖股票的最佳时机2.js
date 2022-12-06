@@ -20,13 +20,13 @@ var maxProfit = function(prices) {
 }
 
 var maxProfit2 = function (prices) {
-   let has = -prices[0];
-   let notHas = 0;
-   for (let i = 1; i < prices.length; i ++) {
-      has = Math.max(has,notHas - prices[i]);
-      notHas = Math.max(notHas,has + prices[i]);
-   }
-   return notHas;
+  let has = -prices[0];
+  let notHas = 0;
+  for (let i = 1; i<prices.length; i ++) {
+     has = Math.max(has, notHas - prices[i]);
+     notHas = Math.max(notHas, has + prices[i])
+  }
+  return notHas;
 }
 
 const prices = [1,2,1,9];
