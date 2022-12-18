@@ -7,5 +7,23 @@
  */
 
 var findLengthOfLCIS = function (nums) {
+  //dp[i]  i 下标之前的数组的连续递增子序列的长度是dp[i];
+  // dp[i] = dp[i - 1] + 
+  // 推导后面一个
+//   const dp = Array(nums.length).fill(1);
+//   for (let i = 0; i < nums.length -1; i ++) {
+//      if (nums[i + 1] > nums[i]) {
+//        dp[i + 1] = dp[i] + 1
+//      }
+//   }
+//   return Math.max(...dp);
 
+  // 推导当前i
+  const dp = Array(nums.length).fill(1);
+  for (let i = 1; i < nums.length; i ++) {
+    if (nums[i] > nums[i - 1]) {
+      dp[i] = dp[i - 1] + 1;
+    }
+  }
+  return Math.max(...dp);
 }

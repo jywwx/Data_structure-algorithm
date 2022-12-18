@@ -7,7 +7,6 @@
 var maxSubArray = function (nums) {
   let ret = -Infinity;
   let count = 0;
-
   for (let i = 0; i < nums.length; i ++) {
      count = 0;
      for (let j = i; j < nums.length; j ++) {
@@ -20,13 +19,10 @@ var maxSubArray = function (nums) {
 /**贪心解法 */
 var maxSubArray2 = function (nums) {
    let ret = -Infinity;
-
    let count = 0;
    for (let i = 0; i < nums.length; i ++) {
       count += nums[i];
-
       count > ret && (ret = count);
-
       if (count < 0) {
         count = 0;
       }
