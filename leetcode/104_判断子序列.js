@@ -32,5 +32,8 @@ var isSubsequence = function (s,t) {
         }
       }
     }
+    console.log(dp,"dps")
     return dp[m][n] === m;
 }
+
+isSubsequence('c','abc')
