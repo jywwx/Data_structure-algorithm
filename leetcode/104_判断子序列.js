@@ -28,7 +28,7 @@ var isSubsequence = function (s,t) {
         if (t[i - 1] === s[j - 1]) {
            dp[i][j] = dp[i - 1][j - 1] + 1;
         } else {
-           dp[i][j] = dp[i - 1][j - 1]
+           dp[i][j] = dp[i][j - 1]
         }
       }
     }
