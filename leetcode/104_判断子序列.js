@@ -20,19 +20,18 @@ var isSubsequence = function (s,t) {
     //    }
 
     const m = s.length;
-    const n = t.length;
-
+    const n = t.lenght;
     const dp = Array(m + 1).fill(0).map((item) => Array(n + 1).fill(0));
+
     for (let i = 1; i <= m; i ++) {
-      for (let j = 1; j <= n; j ++ ) {
-        if (s[i - 1] = t[j - 1]) {
+      for (let j = 1; j <= n; j ++) {
+        if (t[i - 1] === s[j - 1]) {
            dp[i][j] = dp[i - 1][j - 1] + 1;
         } else {
-            dp[i][j] = dp[i][j - 1];
+           dp[i][j] = dp[i - 1][j - 1]
         }
       }
     }
-    console.log(dp,"dps")
     return dp[m][n] === m;
 }
 
