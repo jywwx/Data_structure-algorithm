@@ -35,4 +35,12 @@ var isSubsequence = function (s,t) {
     return dp[m][n] === m;
 }
 
+var isSubsequence2 = function(s,t) {
+   let i = 0;
+   for (let j = 0; j < t.length; j ++) {
+      s[i] === t[j] && (i ++);
+   }
+   return i === s.length;
+}
+
 isSubsequence('c','abc')
