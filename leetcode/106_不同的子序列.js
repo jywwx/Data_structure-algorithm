@@ -12,16 +12,17 @@ var numDistinct = function (s, t) {
    // s[i] t[j] 相等
    //   用s[i - 1] 之前的字符串匹配 dp[i - 1][j - 1];
    //   不用s[i - 1] 之前dp[i - 1][j]
-   // s[i] t[j]相等
+   // s[i] t[j]不相等
    // s[i - 1] 来匹配 d[i - 1][j]
 
-   let dp = Array(s.length + 1).fill(0).map((item) => Array(t.length).fill(0));
+   let dp = Array(s.length + 1).fill(0).map((item) => Array(t.length + 1).fill(0));
+   
    for (let i = 0; i < s.length; i ++) {
      dp[i][0] = 1;
    }
 
-   for (let i = 0; i < s.length; i ++) {
-      for (let j = 0; j < t.length; j ++) {
+   for (let i = 1; i <= s.length; i ++) {
+      for (let j = 1; j <= t.length; j ++) {
         if (s[i - 1] === t[j - 1]) {
             dp[i][j] = dp[i][j - 1] + dp[i -1][j];
         } else {
