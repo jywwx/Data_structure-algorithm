@@ -15,10 +15,9 @@ var numDistinct = function (s, t) {
   // s[i] t[j]不相等
   // s[i - 1] 来匹配 d[i - 1][j]
 
-  let dp = Array(s.length + 1)
+  const dp = Array(s.length + 1)
     .fill(0)
-    .map((item) => Array(t.length + 1).fill(0));
-
+    .map((i) => Array(t.length + 1).fill(0));
   for (let i = 0; i < s.length; i++) {
     dp[i][0] = 1;
   }
@@ -32,8 +31,6 @@ var numDistinct = function (s, t) {
       }
     }
   }
-
-  console.log(dp);
   return dp[s.length][t.length];
 };
 
