@@ -3,11 +3,10 @@
 // let s = 'hello';
 // console.log(s.leftpad(10),'0')
 
-function leftpad(str,length,ch) {
-   let len = length - str.length + 1;
-   return Array(len).join(ch) + str;
+function leftpad(str, length, ch) {
+  let len = length - str.length + 1;
+  return Array(len).join(ch) + str;
 }
-
 
 // 二分的思路去优化
 // 以数组长度 除以2 的频率进行数组遍历
@@ -17,20 +16,21 @@ function leftpad(str,length,ch) {
 // '0'
 // '0' + ‘0’
 // '00‘ + ’00'
- 
-function leftpad2(str,length,ch) {
-  let len = length - str.length,total = '';
-  while (true) {
-     if (len & 1) {
-       total += ch;
-     }
 
-     if (len === 1) {
-       return total += str;
-     }
-     
-     ch += ch;
-     len = len >> 1;
+function leftpad2(str, length, ch) {
+  let len = length - str.length,
+    total = "";
+  while (true) {
+    if (len & 1) {
+      total += ch;
+    }
+
+    if (len === 1) {
+      return (total += str);
+    }
+
+    ch += ch;
+    len = len >> 1;
   }
 }
-console.log(leftpad2('rrrr',10,'0'))
+console.log(leftpad2("rrrr", 10, "0"));
