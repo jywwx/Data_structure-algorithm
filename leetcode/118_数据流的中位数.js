@@ -89,26 +89,29 @@ class Heap {
 // 设计一个小顶堆 放置大的那一半数字
 var MedianFinder = function () {
   this.maxHeap = new Heap((a, b) => a > b);
-  this.minHeap = new Heap((a, b) => b - a);
+  this.minHeap = new Heap((a, b) => a < b);
 };
 
 MedianFinder.prototype.addNum = function (num) {
   if (!this.maxHeap.size || num < this.maxHeap.peek()) {
     this.maxHeap.push(num);
+  } else {
+    this.minHeap.push(num);
   }
 
-  // 保持两个顶堆的平衡
+  // 保持两个二叉堆的平衡
   if (this.maxHeap.size - this.minHeap.size > 1) {
     this.minHeap.push(this.maxHeap.pop());
   }
-  if (this.minHeap.size > this.minHeap.size) {
+
+  if (this.minHeap.size > this.maxHeap.size) {
     this.maxHeap.push(this.minHeap.pop());
   }
 };
 
 MedianFinder.prototype.findMedian = function () {
-  if ((this.minHeap.size + this.maxHeap.size) & 1) {
-    return (this.minHeap.peek() + this.maxHeap.peek()) / 2;
+  if ((this.maxHeap.size + this.minHeap.size) & 1) {
+    return (this.maxHeap.peek() + this.minHeap.peek()) / 2;
   }
   return this.maxHeap.peek();
 };
