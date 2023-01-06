@@ -87,8 +87,8 @@ class Heap {
 }
 
 var findMaximizedCapital = function (k, w, profits, capital) {
-  // 堪称精髓写法啊 我操了个b
-  const arr = capital.map((item, ind) => [item, profits[ind]]);
+  // 堪称精髓写法，操了个b 其实这里也有回溯的意味 基于二叉堆数据结构的回溯
+  const arr = capital.map((item, ind) => [item, ind]);
   arr.sort((a, b) => a[0] - b[0]);
   const heap = new Heap((a, b) => a > b);
   let cur = 0;
