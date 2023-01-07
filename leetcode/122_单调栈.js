@@ -6,15 +6,15 @@ var dailyTemperatures = function (temperatures) {
   // 也是精髓操作 操了个B了个B的
   const n = temperatures.length;
   const res = Array(n).fill(0);
-  const stack = [0];
+  const stack = [];
 
   for (let i = 0; i < n; i++) {
     while (
       stack.length &&
       temperatures[i] > temperatures[stack[stack.length - 1]]
     ) {
-      const top = stack.pop();
-      res[top] = i - top;
+      const topInd = stack.pop();
+      res[topInd] = i - topInd;
     }
     stack.push(i);
   }
