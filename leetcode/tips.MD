@@ -192,3 +192,186 @@
   # 零钱兑换
 
 
+#### 数据结构
+1.链表
+```js 
+// 遍历方法
+  // 方法1:
+  while (head) {
+    head = head.next;
+  }
+  return head;
+  //// 链表遍历的哨兵模式
+  let dummny = {
+    next: head
+  }
+  ...
+  return dummny.next
+```
+2.数组
+```js
+for (let i = 0; i < arr.length; i ++) {
+  arr[i]
+}
+```
+3.树  前端最需要的数据结构！！！其实就是dom 虚拟dom
+```js
+(二叉树)
+  // 递归  深度优先遍历
+  function walk (treeNode) {
+    if (!treeNode) {
+      return treeNode;
+    }
+    // 前序遍历
+    {
+       console.log(treeNode.val);
+       walk(treeNode.left);
+       walk(treeNode.right);;
+    }
+    // 中序遍历
+    {
+       walk(treeNode.left);
+       console.log(treeNode.val);
+       walk(treeNode.right);;
+    }
+    // 后序遍历
+    {
+       
+       walk(treeNode.left);
+       walk(treeNode.right);
+      console.log(treeNode.val);
+    }
+  }
+
+  // 通过栈的方式遍历二叉树 利用栈
+  function walk (treeNode,res = []) {
+     if (!treeNode) {
+        return treeNode;
+     }
+
+     const stack = [treeNode];
+     let cur = null;
+
+     while (stack.length) {
+       cur = stack.pop();
+       res.push(cur.val); // 处理cur 的位置决定前中后序
+       cur.left && stack.push(cur.left)
+      cur.right && stack.push(cur.right)
+     }
+  }
+
+  // 二叉树层序遍历 广度优先 利用队列
+  function walk (treeNode,res = []) {
+    if (!treeNode) {
+      return treeNode;
+    }
+    const queue = [treeNode];
+    while (queue.length) {
+      const len = queue.length;
+      const curLevel = []
+      while (len --) {
+        const node = queue.shift();
+        curLevel.push(node.val);
+      }
+      res.push(curLevel)
+    }
+  }
+``` 
+##### 算法思想
+1.二分(搜索)
+```js
+  // 有序数组里,找一个数字,如果复杂度高，可以优先考虑先排序
+  // n 到log n 的时间复杂度优化
+  let left = 0, right = arr.length - 1;
+
+  while (left < right) {
+    let mid = (left + right) >> 1;
+    if (arr[mid] < nuns[i]) {
+      left = mid + 1;
+    } else {
+      right = mid;
+    }
+
+    // 或者 尚没到达精通 还得专门一节课
+    let mid = (left + right) >> 1;
+    if (arr[mid] < nums[i]) {
+      left = mid + 1;
+    } else if (arr[mid] === nums[i]) {
+      right = mid
+    }
+  }
+  // while left < right 还是 left <= right
+  // left = mid 还是Mid + 1
+  // right = mid 还是 mid - 1
+  // 搜素一个元素的时候 通常 <= mid 需要 +- 1
+  // 搜索便捷的时候， mid + 1,mid, left < right
+```
+2 双指针
+  2.1 适用于链表，数组 后续补充详细
+```js
+   // 快慢指针
+   let fast = head;
+   let slow = head;
+   while (fast && fast.next) {
+    // 怎么走看需求
+   }
+
+   // 头尾指针针对数组进行遍历 好使
+   let i = 0, j = arr.length -1;
+   while (i < j) {
+
+     i++;
+     j--;
+   }
+```   
+3.递归和回溯 (画递归树) ！！！！重点，树的题目
+```
+  function backtrack(数据，路径缓存) {
+    终止条件 处理返回当前路径数据
+    循环：(每次取下一个值（全排列就不一定）) {
+      标记
+      backtrack(数据，路径缓存)
+      取消标记
+    }
+  }
+```
+4.动态规划 ！！！！重点  
+  dp
+<!-- 你要清楚， 结果是怎么推导出来的 重要的是递推公式
+  1，2，5三种零钱，怎么最好的赵处11块钱
+    dp[11] 11块钱这个值得找零的最优解
+    Min(dp[10],dp[9],dp[6]) 这三个的最优解 + 1
+ -->
+
+ // 边界条件
+ // 循环：
+ //    递推公式
+ 
+
+ // 循环硬币
+ //  dp[n] n的钱数下，返回零钱的最优解
+
+ 1. 暴力解(画图)
+ 2. 研究优化，加备忘录
+ 3. 递推
+
+ 5. 贪心
+     没有公式 具体问题具体分析
+ 6. bfs（宽度优先） dfs(回溯，广度优先)
+ 7. 其他
+    bfs
+    位运算 前端授权 鉴权 取消授权 最佳实践
+ 
+
+
+  
+
+
+
+
+
+  
+
+
+
+
