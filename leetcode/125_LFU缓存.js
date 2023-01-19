@@ -36,26 +36,21 @@ LFUCache.prototype.put = function (key, value) {
   }
 
   if (this.values.has(key)) {
-    // 已经存在需要添加的key 不需要淘汰
     this.values.set(key, value);
     this.updateCount(key);
   } else {
     if (this.size === this.values.size) {
-      // 不存在需要添加的key，并且有溢出 需要移除出现频次最少的key
-      let minSet = this.useMap.get(this.min);
+      const minSet = this.useMap.get(this.min);
       const minKey = minSet.keys().next().value;
-
       minSet.delete(minKey);
       this.values.delete(minKey);
       this.times.delete(minKey);
     }
-    // 当前添加的key 只出现了一次
     this.values.set(key, value);
-
-    let useSet = this.useMap.get(1) || new Set();
+    const useSet = this.useMap.get(1) || new Set();
     useSet.add(key);
-    this.useMap.set(1, useSet);
     this.times.set(key, 1);
+    this.useMap.set(1, useSet);
     this.min = 1;
   }
 };
@@ -63,8 +58,7 @@ LFUCache.prototype.put = function (key, value) {
 LFUCache.prototype.updateCount = function (key) {
   let time = this.times.get(key);
   let useSet = this.useMap.get(time);
-
-  if (this.min === time && useSet === 1) {
+  if (this.min === time && useSet.size === 1) {
     this.min++;
   }
   time++;
