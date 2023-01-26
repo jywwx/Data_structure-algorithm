@@ -12,13 +12,12 @@ var minDistance = function (word1, word2) {
   const dp = Array(word1.length + 1)
     .fill(0)
     .map((i) => Array(word2.length + 1).fill(0));
-
   for (let i = 1; i <= word1.length; i++) {
     dp[i][0] = 1;
   }
 
   for (let j = 1; j <= word2.length; j++) {
-    dp[0][j] = 1;
+    dp[0][j] = j;
   }
 
   for (let i = 1; i <= word1.length; i++) {
@@ -28,8 +27,8 @@ var minDistance = function (word1, word2) {
       } else {
         dp[i][j] = Math.min(
           dp[i - 1][j - 1] + 1,
-          dp[i][j - 1] + 1,
-          dp[i - 1][l] + 1
+          dp[i - 1][j] + 1,
+          dp[i][j - 1] + 1
         );
       }
     }

@@ -10,7 +10,7 @@
 var nextGreaterElement = function (nums1, nums2) {
   const map = {};
   const stack = [];
-  for (let i = nums2.length; i >= 0; i--) {
+  for (let i = nums2.length - 1; i >= 0; i--) {
     const num = nums2[i];
     while (stack.length && num > stack[stack.length - 1]) {
       stack.pop();

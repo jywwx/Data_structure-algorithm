@@ -18,10 +18,8 @@ var isSubsequence = function (s, t) {
   //    } else {
   //       // 删除元素
   //    }
-
   const m = s.length;
   const n = t.length;
-
   const dp = Array(m + 1)
     .fill(0)
     .map((i) => Array(n + 1).fill(0));

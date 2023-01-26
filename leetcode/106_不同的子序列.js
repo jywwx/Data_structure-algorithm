@@ -31,7 +31,6 @@ var numDistinct = function (s, t) {
       }
     }
   }
-
   return dp[s.length][t.length];
 };
 

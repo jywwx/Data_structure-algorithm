@@ -7,13 +7,14 @@ var isAnagram = function (s, t) {
   if (s.length !== t.length) {
     return false;
   }
-  const base = "a".charCodeAt(0);
   const arr = Array(26).fill(0);
+  const base = "a".charCodeAt();
+
   for (let i = 0; i < s.length; i++) {
-    arr[s.charCodeAt(i) - base] += 1;
-    arr[t.charCodeAt(i) - base] -= 1;
+    arr[s.charCodeAt(i) - base]++;
+    arr[t.charCodeAt(i) - base]--;
   }
-  return arr.every((i) => i === 0);
+  return arr.every((value) => value === 0);
 };
 
 var isAnagram2 = function (s, t) {

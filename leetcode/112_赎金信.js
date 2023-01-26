@@ -7,14 +7,14 @@
 
 var canConstruct = function (ransomNote, magazine) {
   const arr = Array(26).fill(0);
-  const base = "a".charAtCode(0);
+  const base = "a".charCodeAt();
 
   for (let m of magazine) {
-    arr[m.charAtCode() - base]++;
+    arr[m.charCodeAt() - base]++;
   }
 
   for (let r of ransomNote) {
-    arr[r.charAtCode() - base]--;
+    arr[r.charCodeAt() - base]--;
   }
 
   return arr.every((value) => value >= 0);

@@ -8,16 +8,16 @@
  给定二叉树root。 返回在不触动警报的情况下，小偷能够盗取的最高金额。
  */
 
- var rob = function (root) {
-    const dfs = function (node) {
-      if (!node) {
-         return [0,0];
-      }
-      const left = dfs(node.left);
-      const right = dfs(node.right);
-      const doSteal = node.val + left[0] + right[0];
-      const doNotSteal = Math.max(...left) + Math.max(...right);
-      return [doNotSteal, doSteal];
+var rob = function (root) {
+  function dfs(node) {
+    if (!node) {
+      return [0, 0];
     }
-    return Math.max(dfs(root));
- }
+    const left = dfs(node.left);
+    const right = dfs(node.right);
+    const doSteal = node.val + left[0] + right[0];
+    const doNotSteal = Math.max(...left) + Math.max(...right);
+    return [doNotSteal, doSteal];
+  }
+  return Math.max(...dfs(root));
+};
