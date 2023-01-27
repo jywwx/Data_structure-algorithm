@@ -9,8 +9,8 @@ var maxSubArray = function (nums) {
   for (let i = 0; i < nums.length; i++) {
     let count = 0;
     for (let j = i; j < nums.length; j++) {
-      count += nums[i];
-      ret = count > ret ? count : ret;
+      count += nums[j];
+      ret = Math.max(ret, count);
     }
   }
   return ret;
@@ -21,7 +21,7 @@ var maxSubArray2 = function (nums) {
   let count = 0;
   for (let i = 0; i < nums.length; i++) {
     count += nums[i];
-    count > ret && (ret = count);
+    ret = Math.max(ret, count);
     count < 0 && (count = 0);
   }
   return ret;
@@ -31,8 +31,8 @@ var maxSubArray2 = function (nums) {
 var maxSubArray3 = function (nums) {
   const dp = Array(nums.length).fill(0);
   dp[0] = nums[0];
-  for (let i = 0; i < nums.length; i++) {
-    dp[i] = Math(dp[i - 1] + nums[i], nums[i]);
+  for (let i = 1; i < nums.length; i++) {
+    dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
   }
   return Math.max(...dp);
 };

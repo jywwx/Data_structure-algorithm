@@ -45,20 +45,16 @@ var isHappy2 = function (n) {
       sum += (n % 10) ** 2;
       n = Math.floor(n / 10);
     }
-    return n;
+    return sum;
   };
-
-  let slow = n;
-  let fast = n;
-
+  let slow,
+    fast = n;
   while (fast !== 1 && getNum(fast) !== 1) {
     slow = getNum(fast);
     fast = getNum(getNum(fast));
-
-    if (slow === fast) {
+    if (fast === slow) {
       return false;
     }
   }
-
   return true;
 };
