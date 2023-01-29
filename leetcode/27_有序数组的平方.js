@@ -6,18 +6,20 @@ var sortedSquares = (nums) => {
   if (nums.length === 0) {
     return nums;
   }
-  let left = 0,
-    k = nums.length - 1,
-    right = nums.length - 1;
-  while (left <= right) {
-    const rv = nums[right] * nums[right];
-    const lv = nums[left] * nums[left];
+
+  let start = 0,
+    end = nums.length - 1,
+    k = nums.length - 1;
+
+  while (start <= end) {
+    const rv = nums[end] * nums[end];
+    const lv = nums[start] * nums[start];
     if (rv > lv) {
-      arr[k] = rv;
-      right--;
+      nums[k] = rv;
+      end--;
     } else {
-      arr[k] = lv;
-      left++;
+      nums[k] = lv;
+      start++;
     }
     k--;
   }

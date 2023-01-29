@@ -1,67 +1,54 @@
-
 // 构造二叉树 数据
 
-function TreeNode (val,left,right) {
-   this.val = val ? val : 0;
-   this.left = left ? left : null;
-   this.right = right ? right : null;
+function TreeNode(val, left, right) {
+  this.val = val ? val : 0;
+  this.left = left ? left : null;
+  this.right = right ? right : null;
 }
-const left1 = new TreeNode(1,new TreeNode(2),new TreeNode(3));
+const left1 = new TreeNode(1, new TreeNode(2), new TreeNode(3));
 
 const right2l = new TreeNode(5, new TreeNode(6), new TreeNode(7));
 
-const right1 = new TreeNode(4,right2l, new TreeNode(8));
+const right1 = new TreeNode(4, right2l, new TreeNode(8));
 
-const root = new TreeNode(0,left1,right1);
+const root = new TreeNode(0, left1, right1);
 // console.log(root,"root");
 
-
 /**
- * 
- * @param {*} root 
+ *
+ * @param {*} root
  * 解法一通过递归 反转二叉树
  */
 
-console.log(root)
+console.log(root);
 const invertTree = (root) => {
-    if (root) {
-        invertTree(root.left);
-        invertTree(root.right);
-        [root.left, root.right] = [root.right,root.left]
-    }
-}
+  if (!root) {
+    return root;
+  }
+  [root.left, root.right] = [invertTree(root.right), invertTree(root.left)];
+};
 
 const invertTree2 = (root) => {
-    if (!root) {
-      return root;
-    }
-    [root.left,root.right] = [invertTree2(root.right),invertTree2(root.left)];
+  if (!root) {
     return root;
-}
-
+  }
+  [root.left, root.right] = [invertTree2(root.right), invertTree2(root.left)];
+};
 
 // 遍历Tree
 const iteratorForTree = (root) => {
   if (!root) {
-     return null;
+    return null;
   }
-  const stack = [];
+  const stack = [root];
   const ret = [];
-  stack.push(root);
   while (stack.length) {
-    const root = stack.pop();
-    ret.push(root.val);
-    
-    if (root.right) {
-      stack.push(root.right);
-    }
-
-    if (root.left) {
-      stack.push(root.left)
-    }
+    const node = stack.pop();
+    ret.push(node.val);
+    node.left && stack.push(node.left);
+    node.right && stack.push(node.right);
   }
-  return ret;
-}
+};
 
 // 时间复杂度为O(n)
 // invertTree2(root);

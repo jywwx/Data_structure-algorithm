@@ -6,12 +6,13 @@ var reverseList = function (head) {
   if (!head || !head.next) {
     return head;
   }
-  let prev = null, cur = head;
+  let prev = null,
+    cur = head;
   while (cur) {
     const next = cur.next;
     cur.next = prev;
-    pren = cur;
+    prev = cur;
     cur = next;
   }
   return head;
-}
+};

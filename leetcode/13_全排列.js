@@ -1,31 +1,26 @@
-
-
 // 全排列
 /**
- * 
- * @param {*} nums 
+ *
+ * @param {*} nums
  */
-var permute = function(nums) {
-
-  const backTrack = (list,tem,nums) => {
-     if (tem.length === nums.length) {
-       return list.push([...tem]);
-     }
-
-     for (let i = 0; i < nums.length; i ++) {
-        if (tem.includes(nums[i])) {
-          continue;
-        }
-        tem.push(nums[i]);
-        backTrack(list,tem,nums);
-        tem.pop();
-     }
+var permute = function (nums) {
+  function backTrack(temp) {
+    if (temp.length === nums.length) {
+      list.push([...temp]);
+    }
+    for (let i = 0; i < nums.length; i++) {
+      if (temp.include(nums[i])) {
+        continue;
+      }
+      temp.push(nums[i]);
+      backTrack(temp);
+      temp.pop();
+    }
   }
-
   const list = [];
-  backTrack(list,[],nums);
+  backTrack([]);
   return list;
-}
+};
 
 // 回溯的全部路径的公式
 // let lsit = []
@@ -39,5 +34,4 @@ var permute = function(nums) {
 //    }
 //  }
 
-
-console.log(permute([1,2,3]))
+console.log(permute([1, 2, 3]));
