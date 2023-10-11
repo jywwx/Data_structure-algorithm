@@ -18,8 +18,8 @@ var reverseString = function (s) {
     right = s.length - 1;
   while (left <= right) {
     [s[left], s[right]] = [s[right], s[left]];
-    right--;
     left++;
+    right--;
   }
   return s;
 };

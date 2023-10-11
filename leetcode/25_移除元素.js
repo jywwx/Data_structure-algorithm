@@ -35,7 +35,7 @@ var removeElement = function (nums, val) {
 };
 
 var removeElement2 = function (nums, val) {
-  if (nums.length) {
+  if (!nums.length) {
     return 0;
   }
   let k = 0;

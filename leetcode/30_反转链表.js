@@ -3,10 +3,10 @@
  */
 // 1 => 2 => 3 => 4
 var reverseList = function (head) {
-  if (!head || !head.next) {
+  if (!head || head.next) {
     return head;
   }
-  let prev = null,
+  let prev = head,
     cur = head;
   while (cur) {
     const next = cur.next;

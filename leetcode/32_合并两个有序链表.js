@@ -7,19 +7,19 @@
 var mergeTwoLists = function (list1, list2) {
   // 遍历两个链表,每次判断节点头部的大小
   // 优先把小的追加的新的链表上
-
   // 暴力解法遍历两个链表 把val 放在同一个数组中 然后排序再转换成链表
-  let dummy = {
+  const dummy = {
     next: null,
   };
 
   let temp = dummy;
+
   while (list1 && list2) {
-    if (list1.val <= list2.val) {
+    if (list1 <= list2) {
       temp.next = list1;
       list1 = list1.next;
     } else {
-      temp.next = list2;
+      temp = list2;
       list2 = list2.next;
     }
     temp = temp.next;

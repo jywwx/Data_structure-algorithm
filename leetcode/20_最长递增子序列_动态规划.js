@@ -19,16 +19,11 @@ var lengthOfLIS = function (nums) {
   // 遍历目标数组
   //  __遍历到数组的i 值时
   //    __再遍历 小区i 的数值  j 当j 值 小于 i 值 i 目标位置上的 += 1；
-
   // 边界条件 空数组 返回 0
-
   // 递推公式 dp[i] = 小于dp[i]值的 count + 1
   // 索引值 i,j 如果 nums[j] < nums[i] dp[i] + 1
-
   //以上是动态规划解法
-
   // 贪心算法解法  贪心 + 二分算法解决
-
   // 在贪心算法的逻辑下
   // 让子序列 尽可能增长的慢
   // [1,3,5] 就比[1,4,5] 要好一些
@@ -37,15 +32,16 @@ var lengthOfLIS = function (nums) {
   if (n === 0) {
     return 0;
   }
+  const arr = [];
   for (let i = 0; i < n; i++) {
     if (nums[i] > arr[arr.length - 1]) {
       arr.push(nums[i]);
     } else {
       let left = 0;
       let right = arr.length - 1;
-      while (left < right) {
-        const mid = (left + right) >> 1;
-        if (nums[mid] < nums[i]) {
+      while (left <= right) {
+        let mid = (left + right) >> 1;
+        if (nums[i] > arr[mid]) {
           left = mid + 1;
         } else {
           right = mid;
@@ -59,13 +55,13 @@ var lengthOfLIS = function (nums) {
 
 var lengthOfLIS2 = function (nums) {
   const len = nums.length;
-  if (len === 0) {
+  if (nums.length === 0) {
     return 0;
   }
   const dp = Array(len).fill(1);
   for (let i = 0; i < len; i++) {
     for (let j = 0; j < i; j++) {
-      if (nums[i] > nums[j]) {
+      if (nums[j] < nums[i]) {
         dp[i] = Math.max(dp[i], dp[j] + 1);
       }
     }
@@ -83,7 +79,7 @@ var quickSort = function (start, end, nums) {
       end--;
     }
     while (nums[start] < flag) {
-      start++;
+      start--;
     }
 
     if (start < end) {
@@ -92,15 +88,17 @@ var quickSort = function (start, end, nums) {
       start++;
     }
   }
-  [nums[init], nums[start - 1]] = [nums[start - 1], nums[init]];
+  [nums[start - 1], nums[init]] = [nums[init], nums[start - 1]];
+  return start;
 };
 
 var quickSort1 = function (nums, start, end) {
   if (start < end) {
-    const index = quickSort(nums, start, end);
-    quickSort1(nums, index, end);
-    quickSort1(nums, start, index - 1);
+    const index = quickSort(start, end, nums);
+    quickSort1(start, index - 1, nums);
+    quickSort1(index, end, nums);
   }
+  return nums;
 };
 
 console.log(lengthOfLIS2([1, 5, 2, 4]));

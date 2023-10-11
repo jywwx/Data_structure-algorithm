@@ -16,24 +16,23 @@
  * O(n)
  */
 var minSubArrayLen = function (target, nums) {
-  let slow,
+  let slow = 0,
     fast = 0;
+
   const len = nums.length;
-  let sum = 0;
   const result = len + 1;
+  let sum = 0;
 
   while (fast < len) {
     sum += nums[fast];
     fast++;
-
     while (sum >= target) {
+      sum -= nums[i];
       const subLen = fast - slow;
-      result = result > subLen ? subLen : result;
-      sum -= nums[slow];
+      result = Math.min(result, subLen);
       slow++;
     }
   }
-
   return result > len ? 0 : result;
 };
 console.log(minSubArrayLen(10, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
@@ -47,14 +46,14 @@ console.log(minSubArrayLen(10, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 var minSubArrayLen2 = function (target, nums) {
   // 暴力破解法
   const len = nums.length;
-  const result = len + 1;
+  let result = len + 1;
+
   for (let i = 0; i < len; i++) {
     let sum = 0;
-    for (let j = i; i < len; j++) {
+    for (let j = i; j < len; j++) {
       sum += nums[j];
       if (sum >= target) {
-        const subLen = j - i + 1;
-        result = result > subLen ? subLen : result;
+        result = Math.min(result, j - i + 1);
       }
     }
   }

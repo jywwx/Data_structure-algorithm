@@ -6,23 +6,17 @@
 var foutSum = function (nums, target) {
   // nSum
   const list = [];
-  const tem = [];
   const len = nums.length;
-
+  const temp = [];
   nums.sort((a, b) => a - b);
-  dfs(0, 4, target);
   function dfs(index, count, target) {
     if (count === 0 && target === 0) {
-      list.push([...tem]);
+      list.push(temp);
       return;
     }
 
     // 剪枝
-    if (
-      len - index < count ||
-      target > count * nums[len - 1] ||
-      target < count * nums[index]
-    ) {
+    if ((nums.length - index < count) || (nums[i] > target) || (count * nums[nums.length - 1]) < target) {
       return;
     }
 
@@ -31,10 +25,11 @@ var foutSum = function (nums, target) {
         continue;
       }
 
-      tem.push(nums[i]);
+      temp.push(nums[i]);
       dfs(index + 1, count - 1, target - nums[i]);
-      tem.pop();
+      temp.pop();
     }
   }
+  dfs(0, 4, target);
   return list;
 };

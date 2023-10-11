@@ -6,32 +6,32 @@
 
 /**
  * 大前提条件 数组升序排列
- * @param {*} nums 
- * 本题可以用暴力破解 建新数组 
+ * @param {*} nums
+ * 本题可以用暴力破解 建新数组
  * 题目要求不使用额外空间
  * 也可以使用set
- * 数组原地去重 
+ * 数组原地去重
  * 时间复杂度 O(n) 空间复杂度 O(1);
  */
-// 本题目解题思路 快慢指针 
-// slow fast 
+// 本题目解题思路 快慢指针
+// slow fast
 var removeDuplicates = function (nums) {
   if (!nums.length) {
-     return nums;
+    return nums;
   }
-  let slow = 0, fast = 0;
 
+  let fast = 0,
+    slow = 0;
   while (fast < nums.length) {
     if (nums[fast] !== nums[slow]) {
-       slow ++;
-       nums[slow] = nums[fast];
+      [nums[fast], nums[slow]] = [nums[slow], nums[fast]];
+      slow++;
     }
-    fast ++;
+    fast++;
   }
-  return nums.slice(0,slow + 1)
-}
+  return nums.slice(0, slow + 1);
+};
 
-const nums = [1,2,2,2,2,3,4,4];
+const nums = [1, 2, 2, 2, 2, 3, 4, 4];
 
-console.log(removeDuplicates(nums),"nums")
-
+console.log(removeDuplicates(nums), "nums");

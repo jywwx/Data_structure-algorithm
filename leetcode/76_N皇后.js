@@ -20,6 +20,7 @@ var solveNQueues = function (n) {
       ret.push(result);
       return;
     }
+    
     for (let col = 0; col < n; col++) {
       const canNotSet = temp.some(
         (c, r) => c === col || r - c === row - col || r + c === row + col

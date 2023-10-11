@@ -10,35 +10,36 @@
  *
  */
 
-var Trie = function () {
+var Tire = function () {
   this.children = {};
-};
-Trie.prototype.insert = function (word) {
+}
+
+Tire.prototype.insert = function (word) {
+  let { children } = this;
+  for (let ch of word) {
+     if (!children[ch]) {
+        children[ch] = {}
+     }
+     children = children[ch];
+  } 
+  children.end = true;
+}
+
+Tire.prototype.search = function (word) {
+    const rst = this.startWith(word);
+    return rst && rst.end;
+}
+
+Tire.prototype.startWith = function (word) {
   let { children } = this;
   for (let ch of word) {
     if (!children[ch]) {
-      children[ch] = {};
-    }
-    children = children[ch];
-  }
-  children.end = true;
-};
-
-Trie.prototype.search = function (word) {
-  const ret = this.startWith(word);
-  return ret && ret.end;
-};
-
-Trie.prototype.startWith = function (prefix) {
-  let { children } = this;
-  for (let ch of prefix) {
-    if (!children[ch]) {
       return false;
-    }
+    }  
     children = children[ch];
   }
   return children;
-};
+}
 
 const trie = new Tire();
 trie.insert("apple");

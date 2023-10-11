@@ -10,13 +10,15 @@
 // 5 10
 // 6 null 假设 11 6 还是中间节点
 /**
- * 
- * @param {*} head 
+ *
+ * @param {*} head
  */
 var middleNode = function (head) {
-   let slow = fast = head;
-   while (slow && fast) {
-      slow = slow.next;
-      fast = fast.next.next;
-   }
-}
+  let slow,
+    fast = head;
+  while (slow && fast) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return slow;
+};

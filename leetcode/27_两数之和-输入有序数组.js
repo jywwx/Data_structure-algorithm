@@ -11,76 +11,61 @@
  * 空间复杂度为 O(1);
  */
 /**
- * 
- * @param {*} numbers 
- * @param {*} target 
+ *
+ * @param {*} numbers
+ * @param {*} target
  */
-var twoSum = function (numbers,target) {
-   if (numbers.length === 0) {
-     return [];
-   }
+var twoSum = function (numbers, target) {
+  if (!numbers.length) {
+    return [];
+  }
 
-  //  const ret = [];
-  //  for (let i = 0; i < numbers.length; i++) {
-  //     let start = i;
-  //     while (start < numbers.length - 1) {
-  //       if (numbers[start] + numbers[i] === target) {
-  //         ret.push(i + 1,start + 1);
-  //         return ret;
-  //       }
-  //       start ++;
-  //     }
-  //  }
-  //  return []
-
-  let start = 0, end = numbers.length - 1;
+  let start = 0,
+    end = numbers.length - 1;
   while (start <= end) {
-    if (numbers[start] + numbers[end] === target) {
-      return [start+1, end + 1]
-    } else if (numbers[start] + numbers[end] - target > 0) {
-      end --
+    if (numbers[start] + numsbers[end] === target) {
+      return [start, end];
+    } else if (numbers[start] + numbers[end] > targte) {
+      end--;
     } else {
-      start ++
+      start++;
     }
   }
   return [];
-
-}
-
+};
 
 /**
  * 参考相关思路 三数之和
  */
-var threeSum = function (numbers,target) {
-  numbers.sort((a,b) => a - b);
-
+var threeSum = function (numbers, target) {
+  const len = numbers.length;
+  numbers.sort((a, b) => a - b);
   const list = [];
-  for (let i = 0; i < numbers.length; i ++) {
-     if (numbers[i] === numbers[i -1]) {
-       continue;
-     }
-     let start = i, end = numbers.length - 1;
 
-     while (start < end) {
-        if (numbers[start] + numbers[end] + numbers[i] === target) {
-          list.push(numbers[start], numbers[end], numbers[i]);
-          
-          while (numbers[start + 1] === numbers[start]) {
-            start ++
-          }
-          start ++;
+  for (let i = 0; i < len; i++) {
+    let left = i + 1;
+    let right = len - 1;
+    while (left < right) {
+      if (numbers[i] + numbers[left] + numbers[right] === target) {
+        list.push([i, left, right]);
 
-          while (numbers[end -1] === numbers[end]) {
-            end --
-          }
-          end --
-        } else if (numbers[start] + numbers[end] + numbers[i] - target > 0) {
-          end --
-        } else {
-          start ++
+        while (numbers[right] === numbers[right - 1]) {
+          right--;
         }
-     }
-  }
-}
+        right--;
 
-console.log(twoSum([1,2,3,4],4))
+        while (numbers[left] === numbers[left + 1]) {
+          left++;
+        }
+        left++;
+      } else if (numbers[right] + numbers[left] > target) {
+        right--;
+      } else {
+        left++;
+      }
+    }
+  }
+  return list;
+};
+
+console.log(twoSum([1, 2, 3, 4], 4));

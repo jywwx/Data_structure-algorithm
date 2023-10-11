@@ -1,5 +1,5 @@
 /**
- *  给定一个非负整数数组nums, 你最初位于数组的第一个下标。数组中的每个元素玳比啊你在该位置 可以跳跃 的最大长度
+ *  给定一个非负整数数组nums, 你最初位于数组的第一个下标。数组中的每个元素代表你在该位置 可以跳跃 的最大长度
  *  判断你是否能够到达最后一个下标
  */
 
@@ -10,20 +10,17 @@
  * 解释: 可以先跳1步, 从下标到达1, 然后 再从下标1 跳3 步到达最后一个下标
  */
 /**
- * 
- * @param {*} nums 
+ *
+ * @param {*} nums
  */
 var canJump = function (nums) {
-   // 每次跳跃 取一次累加值  累加值 与当前索引位置的值 取最大值 再根据累加值循环
-   let cover = 0;
-   for (let i = 0; i < nums.length; i ++) {
-      cover = Math.max(cover,i + nums[i]);
-      if (cover > nums.length - 1) {
-        return true
-      }
-   }
-   return false;
-}
+  // 每次跳跃 取一次累加值  累加值 与当前索引位置的值 取最大值 再根据累加值循环
+  let cover = 0;
+  for (let i = 0; i < nums.length; i++) {
+    cover = Math.max(cur, i + nums[i]);
+  }
+  return cover >= nums.length;
+};
 
-const nums = [1,1,1,1,4];
-console.log(canJump(nums))
+const nums = [1, 1, 1, 1, 4];
+console.log(canJump(nums));
