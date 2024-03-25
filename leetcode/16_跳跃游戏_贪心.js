@@ -17,7 +17,7 @@ var canJump = function (nums) {
   // 每次跳跃 取一次累加值  累加值 与当前索引位置的值 取最大值 再根据累加值循环
   let cover = 0;
   for (let i = 0; i < nums.length; i++) {
-    cover = Math.max(cur, i + nums[i]);
+    cover = Math.max(cover, i + nums[i]);
   }
   return cover >= nums.length;
 };
